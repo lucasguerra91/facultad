@@ -1,0 +1,39 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-01-25T13:06:36-03:00
+
+====== Capitulo 1 ======
+Created jueves 25 enero 2018
+
+=== Tipos de sistemas: ===
+Los sistemas de informacion se desarrollan para distintos fines, dependiendo de las necesidades de los usuarios y las empresas.
+
+=== Sistemas de procesamiento de transacciones (TPS) ===
+Son sistemas de informacion computarizada que se desarrollan para procesar grandes cantidades de informacion para las transacciones de negocios rutinarias, como nominas e inventario.
+Los TPS  son sistemas que atraviesan limites y permiten que la organizacion interactue con los entornos externos. Como los administradores analizan los datos generados por el TPS para obtener informacion actualizada sobre lo que ocurre en sus empresas, es impresindible que estos sistemas funcionen sin problemas ni interrupciones para sustentar las operaciones diarias de estas compañías.
+
+=== Sistemas de automatización de oficinas y sistemas de trabajo de conocimiento (OAS) ===
+En el nivel de conocimiento de la organizacion hay dos clases de sistemas. Los OAS brindan apoyo a las personas que trabajan con datos no para crear conocimiento sino para analizar la 
+informacion y transformar los datos o manipularlos de cierta forma antes de compartirlos o diseminarlos de manera formal a traves de la organizacion y, algunas veces, mas alla.
+Sus aspectos mas conocidos son el procesamiento de palabras, las hojas de calculo, el diseño de graficos por computadora, la planificacion electronica y la comunicacion a travez de correo de voz, correo electronico y teleconferencias.
+Los sistemas de trabajo de conocimiento (KWS) brindan apoyo a profesionales como cientificos, ingenieros y medicos, ayudandoles a crear conocimiento y a integrarlo a su organizacion o la sociedad.
+
+=== Sistemas de informacion administrativa ===
+Los (MIS) no sustituyen a los sistemas de procesamiento de transacciones; mas bien todos los sistemas MIS incluyen el procesamiento de transacciones. 
+Los MIS brindan soporte a los usuarios para realizar un espectro mas amplio de tareas organizacionales que los sistemas de procesamiento de transacciones, incluyendo los procesos de analisis y toma de decisiones.
+
+=== Sistema de soporte de decisiones ===
+Los DSS pertenecen a una clase superior de sistemas de informacion. Los DSS son similares al sistema de informacion administrativa tradicional debido a que ambos dependen de una base de datos como fuente de datos. Este sistema esta mas enfocado a brindar respaldo a la toma de decisiones en todas sus fases, aunque la desicion misma aun corresponde de manera exclusiva al usuario. Los sistemas de soporte de decisiones se ajustan a la persona o el grupo usuario que un sistema de informacion administrativa tradicional.
+
+=== Inteligencia artificial y sistemas expertos ===
+La IA puede ser considerada como el campo dominante de los sistemas expertos. La idea general de la IA ha sido desarrollar equipos que se comporten de manera inteligente. Dos ramas de investigacion de la IA son: 1) la comprension del lenguaje natural y 2) el analisis de la habilidad de razonar un problema y llegar a una conclusion logica.
+Los sistemas expertos son una clase muy especial de sistema de informacion que ha demostrado su utilidad comercial gracias a la disponibilidad extendida de hardware y software como las computadoras personales y las interfaces de sistemas expertos. Un sistema experto , tambien conocido como sistema basado en conocimiento, captura y utiliza en forma efectiva el conocimiento de uno o varios expertos humanos para resolver un problema especifico.
+
+=== Sistema de soporte de decisiones en grupo y sistemas de trabajo colaorativo asistido por computadora ===
+Las organizaciones confian cada vez mas en los grupos o equipos para tomar decisiones en conjunto. Cuando los grupos toman decisiones semi-estructuradas o no estructuradas, un sistema de soporte de decisiones en grupo GDSS puede ofrecer una solucion.
+
+=== Sistema de soporte para ejecutivos ===
+Cuando los ejecutivos fijan su atencion en la computadora, a menudo buscan obtener ayuda para tomar decisiones en el nivel estrategico. Los ESS ayudan a los ejecutivos a organizar sus interacciones con el entorno externo ofreciendo tecnologias de graficos y comunicaciones en sitios accesibles como salas de juntas u oficinas corporativas personales.
+
+=== Sistemas empresariales ===
+Muchas organizaciones preveen beneficios potenciales derivados de la integracion de diversos sistemas de informacion existentes en distintos niveles administrativos y dentro de diferentes funciones. Algunos autores describen la integracion como arquitectura orientada a servicios (SOA) , la cual existe en capas. Los sistemas empresariales conformarian la capa superior. Estos sistemas, tambien conocidos como sistemas de planificacion de recursos empresariales ERP, estan diseñados
