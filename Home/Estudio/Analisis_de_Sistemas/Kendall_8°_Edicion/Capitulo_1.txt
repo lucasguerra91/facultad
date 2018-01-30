@@ -1,0 +1,99 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-01-25T13:06:36-03:00
+
+====== Capitulo 1 ======
+Created jueves 25 enero 2018
+
+=== Tipos de sistemas: ===
+Los sistemas de informacion se desarrollan para distintos fines, dependiendo de las necesidades de los usuarios y las empresas.
+
+=== Sistemas de procesamiento de transacciones (TPS) ===
+Son sistemas de informacion computarizada que se desarrollan para procesar grandes cantidades de informacion para las transacciones de negocios rutinarias, como nominas e inventario.
+Los TPS  son sistemas que atraviesan limites y permiten que la organizacion interactue con los entornos externos. Como los administradores analizan los datos generados por el TPS para obtener informacion actualizada sobre lo que ocurre en sus empresas, es impresindible que estos sistemas funcionen sin problemas ni interrupciones para sustentar las operaciones diarias de estas compañías.
+
+=== Sistemas de automatización de oficinas y sistemas de trabajo de conocimiento (OAS) ===
+En el nivel de conocimiento de la organizacion hay dos clases de sistemas. Los OAS brindan apoyo a las personas que trabajan con datos no para crear conocimiento sino para analizar la 
+informacion y transformar los datos o manipularlos de cierta forma antes de compartirlos o diseminarlos de manera formal a traves de la organizacion y, algunas veces, mas alla.
+Sus aspectos mas conocidos son el procesamiento de palabras, las hojas de calculo, el diseño de graficos por computadora, la planificacion electronica y la comunicacion a travez de correo de voz, correo electronico y teleconferencias.
+Los sistemas de trabajo de conocimiento (KWS) brindan apoyo a profesionales como cientificos, ingenieros y medicos, ayudandoles a crear conocimiento y a integrarlo a su organizacion o la sociedad.
+
+=== Sistemas de informacion administrativa ===
+Los (MIS) no sustituyen a los sistemas de procesamiento de transacciones; mas bien todos los sistemas MIS incluyen el procesamiento de transacciones. 
+Los MIS brindan soporte a los usuarios para realizar un espectro mas amplio de tareas organizacionales que los sistemas de procesamiento de transacciones, incluyendo los procesos de analisis y toma de decisiones.
+
+=== Sistema de soporte de decisiones ===
+Los DSS pertenecen a una clase superior de sistemas de informacion. Los DSS son similares al sistema de informacion administrativa tradicional debido a que ambos dependen de una base de datos como fuente de datos. Este sistema esta mas enfocado a brindar respaldo a la toma de decisiones en todas sus fases, aunque la desicion misma aun corresponde de manera exclusiva al usuario. Los sistemas de soporte de decisiones se ajustan a la persona o el grupo usuario que un sistema de informacion administrativa tradicional.
+
+=== Inteligencia artificial y sistemas expertos ===
+La IA puede ser considerada como el campo dominante de los sistemas expertos. La idea general de la IA ha sido desarrollar equipos que se comporten de manera inteligente. Dos ramas de investigacion de la IA son: 1) la comprension del lenguaje natural y 2) el analisis de la habilidad de razonar un problema y llegar a una conclusion logica.
+Los sistemas expertos son una clase muy especial de sistema de informacion que ha demostrado su utilidad comercial gracias a la disponibilidad extendida de hardware y software como las computadoras personales y las interfaces de sistemas expertos. Un sistema experto , tambien conocido como sistema basado en conocimiento, captura y utiliza en forma efectiva el conocimiento de uno o varios expertos humanos para resolver un problema especifico.
+
+=== Sistema de soporte de decisiones en grupo y sistemas de trabajo colaorativo asistido por computadora ===
+Las organizaciones confian cada vez mas en los grupos o equipos para tomar decisiones en conjunto. Cuando los grupos toman decisiones semi-estructuradas o no estructuradas, un sistema de soporte de decisiones en grupo GDSS puede ofrecer una solucion.
+
+=== Sistema de soporte para ejecutivos ===
+Cuando los ejecutivos fijan su atencion en la computadora, a menudo buscan obtener ayuda para tomar decisiones en el nivel estrategico. Los ESS ayudan a los ejecutivos a organizar sus interacciones con el entorno externo ofreciendo tecnologias de graficos y comunicaciones en sitios accesibles como salas de juntas u oficinas corporativas personales.
+
+=== Sistemas empresariales ===
+Muchas organizaciones preveen beneficios potenciales derivados de la integracion de diversos sistemas de informacion existentes en distintos niveles administrativos y dentro de diferentes funciones. Algunos autores describen la integracion como arquitectura orientada a servicios (SOA) , la cual existe en capas. Los sistemas empresariales conformarian la capa superior. Estos sistemas, tambien conocidos como sistemas de planificacion de recursos empresariales ERP, estan diseñados para llevar a cabo esta integracion. Para establecer un ERP se requiere de un enorme compromiso.
+
+=== Software de código fuente abierto ===
+El OSS es una alternativa al desarrollo de software tradicional, en donde el código propietario se oculta a los usuarios. Con el OSS, los usuarios y programadores pueden estudiar, compartir y modificar el códigi o las instrucciones de computadora. Las reglas de esta comunidad incluye la idea de que cualquier modificacion a los programas se debe compartir con todas las personas del proyecto.
+
+
+=== NECESIDAD DEL ANALISIS Y DISEÑO DE SISTEMAS ===
+El analisis y diseño de sistemas que los analistas llevan a cabo busca comprender que necesitan los humanos para analizar la entrada o el flujo de datos de manera sistematica, procesar o transformar los datos, almacenarlos y producir informacion en el contexto de una organizacion especifica.
+
+=== ROLES DEL ANALISTA DE SISTEMAS ===
+El analista de sistemas evalua en forma sistematica como interactuan los usuarios con la tecnologia y como operan las empresas, para lo cual examinan los procesos de entrada/salida de los datos y la produccion de informacion con la intencion de mejorar los procesos organizacionales.
+
+=== El analista de sistemas como consultor. ===
+Con frecuencia el analista actua como consultor de sistemas para las personas y sus empresas y, por ende, puede llegar a contratarlo especificamente para lidiar con las cuestiones relacionadas con los sistemas de informacion dentro de la empresa. Ser consultor externo puede tener sus ventajas y desventajas , porque si bien se puede dar una opinion fresca sobre el caso, uno nunca llega a conocer la verdadera cultura de la empresa.
+
+=== El analista de sistemas como experto de soporte ===
+Como empleado de una empresa, tal vez le toque desempeñarse como experto en soporte en algun puesto de sistemas. En este rol, el analista se basa en su experiencia profesional sobre hardware y software y su uso en los negocios. A menudo este trabajo no es un verdadero proyecto de sistemas, sino que supone una pequeña modificacion o decision que afecta a un solo departamento.
+Como experto en  soporte usted no administra un proyecto de sistemas, simplemente actua como recurso para quienes lo administran. Si usted es analista de sistemas empleado por una organizacion de manufactura o de servicios, tal vez muchas de sus actividades diarias correspondan a este rol.
+
+=== El analista de sistemas como agente de cambio ===
+El rol mas extenso y responsable del analista es el de agente de cambio, ya sea interno o externo, para la empresa. Como analista, usted actua como un agente de cambio cada vez que realiza alguna de las actividades del ciclo de vida del desarrollo de sistemas y esta presente e interactua con los usuarios y la empresa durante un periodo extendido (de dos semanas a mas de un año)
+
+=== CICLO DE VIDA DEL DESARROLLO DE SISTEMAS ===
+El SDLC es una metodologia en fases para el analisis y diseño, de acuerdo con la cual los sistemas se desarrollan mejor al utilizar un ciclo especifico de actividades del analista y los usuarios.
+Los analistas no se han puesto de acuerdo sobre la cantidad de fases que hay en el SDLC, pero por lo general alaban su metodologia organizada.
+Aunque cada fase se presenta de manera discreta, en realidad nunca se puede llevar a cabo como un paso separado, sino que varias actividades pueden ocurrir al mismo tiempo, e incluso se pueden repetir.
+
+=== Incorporacion de las consideraciones de la interaccion humano-computadora ===
+En años recientes, el estudio de la interaccion humano-computadora (HCI) se ha vuelto cada vez mas importante para los analistas de sistemas. Aunque la definicion sigue evolucionando, los investigadores caracterizan a la HCI como el "aspecto de una computadora que permite las comunicaciones e interacciones entre ella y los hmanos. Es el nivel de la computadora que esta entre ella y los humanos". Los analistas que utilizan esta metodologia se enfocan en las personas en vez del trabajo a realizar o la IT involucrada. Su metodologia para un problema es multifacetica ya que analizan los factores humanos ergonomicos, cognitivos, afectivos y de comportamiento involucrados en las tareas de los usuarios, los procesos de solucion de problemasy el contexto de la interaccion. La interaccion entre humano y computadora se concentra en las necesidades humanas en vez de enfocarse primero en las necesidades de la organizacion y del sistema.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
