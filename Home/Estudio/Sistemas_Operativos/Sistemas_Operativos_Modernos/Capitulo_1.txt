@@ -1,0 +1,23 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-01-31T16:37:56-03:00
+
+====== Capitulo 1 ======
+Created miércoles 31 enero 2018
+
+Un ordenador consiste de uno o mas procesadores, alguna memoria principal, discos, impresoras, un teclado, una pantalla, interfaces de red y otros dispositivos de entrada/salida. Se trata de  un sistema muy complejo. Resulta un trabajo extremadamente dificil escribir programas que controlen todos esos componentes y los utilicen de una forma correcta, no digamos optima. Por esta razon, los ordenadores estan equipados con una capa de software que se denomina sistema operativo, cuya funcion es gestionar todos esos dispositvos y proporcionar a los programas del usuarios una interfaz con el hardware mas sencilla.
+
+Por encima de los dispositivos fisicos se encuentra el nivel de la microarquitectura, en el cual los dispositivos fisicos se agrupan para formar unidades funcionales. Este nivel contiene tipicamente algunos registros internos de la CPU y una ruta de datos conteniendo una unidad aritmetico-logica (por ejemplo mediante la operacion de suma o el AND logico). El resultado se almacena en uno o mas registros. En algunas maquinas es el software quien controla el funcionamiento de la ruta de datos. Dicho software se denomina microprograma. En otras maquinas son los circuitos del hardware quienes controlan directamente la ruta de datos.
+
+=== Estructura interna de MINIX ===
+Minix esta estructurado en cuatro capas, con cada capa realizando una funcion bien definida
+* Procesos de Usuario
+* Procesos servidores : gestor de memoria, gestor de ficheros
+* Tareas E/S : tarea de disco, tarea de tty, tarea de reloj , tarea del sistema
+* Gestion de procesos (nucleo, kernel)
+
+
+La capa del fondo captura todas las interrupciones y traps, realiza la planificación, y proporciona a las capas superiores un modelo de procesos secuenciales independientes que se comunican mediante mensajes.
+El código de esta capa tiene dos funciones principales. La primera es capturar los traps y las interrupciones, salvar y restaurar los registros, planificar, y hacer todo lo demás que se necesita para conseguir que funcione realmente la abstracción de los procesos que se proporciona a las capas superiores. La segunda es manejar la mecánica de los mensajes; comprobando la legalidad de sus destinatarios, localizando los búferes de las operaciones de enviar y recibir en la memoria, y copiando los bytes desde el emisor al receptor. Esa parte de la capa que trata el nivel inferior del manejo de las interrupciones está escrito en lenguaje ensamblador. El resto de la capa y todas las capas superiores, están escritas en C.
+
+

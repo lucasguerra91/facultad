@@ -1,0 +1,7 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-01-31T16:37:47-03:00
+
+====== Sistemas Operativos Modernos ======
+Created miércoles 31 enero 2018
+
