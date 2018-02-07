@@ -1,6 +1,5 @@
 Content-Type: text/x-zim-wiki
 Wiki-Format: zim 0.4
-Creation-Date: 2018-01-31T16:37:56-03:00
 
 ====== Capitulo 1 ======
 Created miércoles 31 enero 2018
@@ -17,7 +16,92 @@ Minix esta estructurado en cuatro capas, con cada capa realizando una funcion bi
 * Gestion de procesos (nucleo, kernel)
 
 
-La capa del fondo captura todas las interrupciones y traps, realiza la planificación, y proporciona a las capas superiores un modelo de procesos secuenciales independientes que se comunican mediante mensajes.
+**La capa del fondo** captura todas las interrupciones y traps, realiza la planificación, y proporciona a las capas superiores un modelo de procesos secuenciales independientes que se comunican mediante mensajes.
 El código de esta capa tiene dos funciones principales. La primera es capturar los traps y las interrupciones, salvar y restaurar los registros, planificar, y hacer todo lo demás que se necesita para conseguir que funcione realmente la abstracción de los procesos que se proporciona a las capas superiores. La segunda es manejar la mecánica de los mensajes; comprobando la legalidad de sus destinatarios, localizando los búferes de las operaciones de enviar y recibir en la memoria, y copiando los bytes desde el emisor al receptor. Esa parte de la capa que trata el nivel inferior del manejo de las interrupciones está escrito en lenguaje ensamblador. El resto de la capa y todas las capas superiores, están escritas en C.
+
+**La capa 2** contiene los procesos de E/S, uno por tipo de dispositivo. Para distinguirlos de los procesos de usuario ordinarios, vamos a llamarlos tareas, pero las diferencias entre las tareas y los procesos son mínimas. En numerosos sistemas las tareas de E/S se denominan drivers de dispositivos; vamos a utilizar los términos “tarea” y “driver de dispositivo” de forma intercambiable.
+Es necesaria una tarea por cada tipo de dispositivo, incluyendo discos, impresoras, terminales, interfaces de red y relojes. Si hay otros dispositivos presentes, es necesaria una nueva tarea para cada uno de ellos. Una tarea, la tarea del sistema, es un poco diferente, ya que no corresponde a ningún dispositivo de E/S.
+
+**Todas las tareas de la capa 2 y todo el código en la capa 1** están enlazados juntos en un único programa binario denominado el núcleo. Algunas de las tareas comparten subrutinas comunes, pero de otra manera son independientes unas de otras, se planifican independientemente, y se comunican utilizando mensajes. Los procesadores de Intel comenzando con el 286 asignan uno de sus cuatro niveles de privilegio a cada proceso. Aunque las tareas y el núcleo están compiladas juntas, cuando el núcleo y las rutinas de tratamiento de las interrupciones están ejecutándose tienen más privilegios que las tareas. Entonces el verdadero código del núcleo puede acceder a cualquier parte de la memoria y a cualquier registro del procesador – esencialmente, el núcleo puede ejecutar cualquier instrucción utilizando datos de cualquier sitio dentro del sistema. Las tareas no pueden ejecutar todas las instrucciones a nivel de máquina, ni pueden acceder a todos los registros de la CPU o a todas las parte  de la memoria. 
+Sin embargo, ellas pueden acceder a regiones de la memoria pertenecientes a procesos menos privilegiados, en orden a realizar E/S para ellos. Una tarea, la tarea del sistema, no realiza E/S en el sentido normal pero existe en orden a proporcionar servicios, tales como la copia de datos entre diferentes regiones de la memoria, para procesos a los que no se les permite realizar esas cosas por si mismos. En máquinas que no proporcionan diferentes niveles de privilegio, tales como los procesadores más antiguos de Intel, estas restricciones no pueden ser reforzadas por el hardware.
+
+**La capa 3** contiene procesos que proporcionan servicios útiles a los procesos de usuario. Estos procesos servidores se ejecutan en un nivel menos privilegiado que el núcleo y las tareas y no pueden acceder a los puertos de E/S directamente. Estos procesos tampoco pueden acceder a la memoria fuera de los segmentos que se les han asignado. 
+El gestor de memoria (MM) lleva a cabo todas las llamadas al sistema de MINIX que involucran gestión de memoria, tales como FORK, EXEC y BRK.
+El sistema de ficheros (FS) lleva a cabo todas las llamadas al sistema de ficheros, tales como READ,
+MOUNT y CHDIR. Como hemos señalado al comienzo del Capítulo 1, los sistemas operativos hacen dos cosas: gestionan los recursos y proporcionan una máquina extendida mediante la implementación de las llamadas al sistema. En MINIX la gestión de los recursos está situada principalmente en el núcleo (capas 1 y 2), y la interpretación de las llamadas al sistema está en la capa 3. El sistema de ficheros se ha diseñado como un “servidor” de ficheros y puede moverse a una máquina remota casi sin cambios. Esto también es válido para el gestor de memoria, aunque los servidores de memoria remotos no son tan útiles como los servidores de ficheros remotos. 
+En la capa 3 pueden existir servidores adicionales. Aunque MINIX tal y como se describe en este libro no incluye el servidor de red, su código fuente es parte de la distribución estándar de MINIX. El sistema puede recompilarse fácilmente para incluirlo
+
+Este es un buen lugar para señalar que aunque los servidores son procesos independientes,difieren de los procesos de usuario en que arrancan cuando el sistema arranca, y nunca terminan mientras el sistema esté activo. Adicionalmente, aunque ellos se ejecutan en el mismo nivel de privilegio que los procesos de usuario en términos de las instrucciones máquina que se les permite
+ejecutar, reciben una prioridad de ejecución más alta que los procesos de usuario. Para acomodar un nuevo servidor es necesario recompilar el núcleo. El código de arranque del núcleo instala los servidores en entradas privilegiadas de la tabla de procesos antes de que se haya permitido la ejecución de ningún proceso de usuario.
+
+
+**Finalmente, la capa 4** contiene todos los procesos de usuario – shells, editores, compiladores y programas a.out escritos por el usuario. Un sistema en ejecución tiene usualmente algunos procesos que comienzan su ejecución cuando el sistema arranca y que nunca terminan de ejecutarse. Por ejemplo, un demonio es un proceso de fondo que se ejecuta periódicamente o que siempre espera a que tenga lugar un suceso, tal como la llegada de un paquete por la red. En cierto sentido un demonio es un servidor que se arranca independientemente y se ejecuta como un proceso de usuario. Sin embargo, de forma diferente a los verdaderos servidores instalados en entradas privilegiadas de la tabla de procesos, tales programas no pueden recibir un tratamiento especial por parte del núcleo como el que reciben los procesos servidores de memoria y de ficheros.
+
+=== PROCESOS Y THREADS ===
+
+== Procesos ==
+Todos los ordenadores modernos pueden hacer varias cosas a la vez. Mientras un ordenador está ejecutando un programa de usuario puede perfectamente también estar leyendo de un disco e imprimiendo texto en una pantalla o una impresora. En un sistema multiprogramado la CPU también conmuta de unos programas a otros, ejecutando cada uno de ellos durante decenas o cientos de milisegundos. Aunque, estrictamente hablando, en cualquier instante de tiempo la CPU sólo está ejecutando un programa, en el transcurso de 1 segundo ha podido estar trabajando sobre varios programas, dando entonces a los usuarios la impresión de un cierto paralelismo. En este contexto a veces la gente habla de pseudoparalelismo, en contraste con el auténtico paralelismo del hardware de los sistemas multiprocesador (que tienen dos o más CPUs compartiendo la misma memoria física). Seguir la pista de múltiples actividades paralelas resulta muy complicado para las personas. Por ese motivo los diseñadores del sistema operativo han desarrollado a través de los años un modelo conceptual evolucionado (el de los procesos secuenciales) que permite tratar el paralelismo de una forma más fácil. Este modelo, sus usos, y algunas de sus consecuencias constituyen el tema de este capítulo.
+
+== El modelo de los Procesos Secuenciales ==
+En este modelo, todo el software ejecutable en el ordenador, incluyendo a veces al propio sistema operativo, se organiza en un número de procesos secuenciales, o simplemente procesos para acortar. Un proceso es justamente un programa en ejecución, incluyendo los valores actuales del contador de programa, registros y variables. Conceptualmente cada proceso tiene su propia CPU virtual. En realidad, por supuesto, la CPU real conmuta sucesivamente de un proceso a otro, pero para entender el sistema, es mucho más fácil pensar sobre una colección de procesos ejecutándose en (pseudo) paralelo, que intentar seguir la pista de cómo la CPU conmuta de un programa a otro. Esta rápida conmutación de un proceso a otro en algún orden se denomina **multiprogramación.**
+
+Con la CPU conmutando de un proceso a otro, la velocidad a la cual un proceso realiza su computación no es uniforme y probablemente ni siquiera es reproducible si los mismos procesos se ejecutan de nuevo. Por ese motivo los procesos no deben programarse bajo suposiciones preconcebidas sobre su velocidad de ejecución. 
+Consideremos, por ejemplo, un proceso de E/S que restaura los ficheros de un backup en cinta. El proceso comienza poniendo
+en marcha la cinta, ejecuta 10.000 veces un bucle para esperar a que la cinta adquiera la velocidad adecuada, y en ese preciso momento envía un comando para leer el primer registro de la cinta. Si la CPU decide conmutar a otro proceso durante el bucle de retardo, el proceso de la cinta puede no volver a ejecutarse antes de que el primer registro sobrepase la cabeza de lectura.
+Cuando un proceso tiene requerimientos de tiempo real críticos como el anterior, esto es, que ciertos sucesos particulares deben ocurrir dentro de un número de milisegundos especificado, entonces es necesario tomar medidas especiales para asegurar que efectivamente esos sucesos ocurran dentro de esos límites de tiempo. Sin embargo, normalmente la mayoría de los procesos
+no se ven afectados por la multiprogramación subyacente de la CPU o por las velocidades relativas de los diferentes procesos.
+
+**La diferencia entre un proceso y un programa** es sutil, pero crucial. Para explicar esto puede servirnos de ayuda una analogía. Consideremos un científico informático con aptitudes culinarias que está preparando una tarta de cumpleaños para su hija. Para ello dispone de una receta de la tarta de cumpleaños y una cocina bien surtida con todos los ingredientes: harina, huevos, azúcar, extracto de vainilla, etc. En esta analogía, la receta representa el programa (es decir un algoritmo expresado mediante alguna notación apropiada), el científico informático representa el procesador (CPU), y los ingredientes de la tarta representan los datos de entrada.
+El proceso es la actividad consistente en nuestro pastelero leyendo la receta, añadiendo los
+ingredientes y preparando la tarta. Imaginemos ahora que el hijo del científico informático entra corriendo y gritando, diciendo que le ha picado una abeja. El científico informático apunta por donde iba en la receta (salva el estado del proceso actual), coge un libro de primeros auxilios y comienza a seguir las instrucciones para la cura. Aquí vemos cómo el procesador conmuta de un proceso (preparar la tarta) a un proceso de mayor prioridad (administrar cuidados médicos), cada uno de los cuales sigue un programa diferente (la receta frente al libro de primeros auxilios). 
+Una vez que termina de curar la picadura de la abeja, el científico vuelve a su tarta, continuando en el punto donde la dejó.
+
+**La idea clave aquí es que un proceso es una actividad de algún tipo. Tiene un programa,entrada, salida y un estado. Un único procesador puede compartirse entre varios procesosutilizando un algoritmo de planificación que determine cuándo hay que detener el trabajo sobre un proceso y pasar a atender a otro diferente.**
+
+
+== Creacion de procesos ==
+Los sistemas operativos necesitan asegurar de alguna forma que puedan existir todos los procesos necesarios. En sistemas muy sencillos, o en sistemas diseñados para ejecutar tan solo una única aplicación (por ejemplo el controlador de un microondas), puede conseguirse que cuando el sistema termine de arrancar estén presentes ya todos los procesos que puedan necesitarse en el futuro. Sin embargo, en sistemas de propósito general es necesaria alguna manera de poder crear y destruir los procesos según sea necesario durante la operación del sistema. 
+Vamos a fijarnos ahora en algunas de estas cuestiones.
+
+**Los cuatro principales sucesos que provocan la creación de nuevos procesos son:**
+1. La inicialización del sistema
+2. La ejecución por parte de un proceso (en ejecución) de una llamada al sistema de
+creación de un nuevo proceso.
+3. La petición por parte del usuario de la creación de un nuevo proceso.
+4. El inicio de un trabajo en batch.
+
+Cuando un sistema operativo arranca, se crean típicamente varios procesos. Algunos de esos procesos son procesos de superficie (o en primer plano), esto es, procesos que interactúan con los usuarios (humanos) y realizan trabajo para ellos. Otros son procesos de fondo (o en segundo plano), que no están asociados con usuarios particulares, sino que tienen alguna función específica. Por ejemplo, un proceso de fondo puede diseñarse para que se encargue de aceptar el correo electrónico entrante, de manera que esté durmiendo la mayor parte del día pero vuelva repentinamente a la vida tan pronto como llegue algún correo. Otro proceso de fondo puede diseñarse para aceptar peticiones entrantes de páginas web residentes en esa máquina, despertándose cada vez que llegue una nueva petición para servir una cierta página. Los procesos que se ejecutan como procesos de fondo para llevar a cabo alguna actividad tal como el correo electrónico, las páginas web, las news o la impresión de ficheros de salida, etc, se denominan demonios. Los sistemas grandes tienen comúnmente docenas de ellos. En UNIX, el programa ps puede utilizarse para listar los procesos que están en marcha. En Windows 95/98/Me tecleando CTRL-ALT-SUPR una vez, se muestra todo lo que está en marcha. En Windows 2000 se utiliza el administrador de tareas.
+
+
+Adicionalmente a los procesos creados en el momento del arranque, también pueden crearse nuevos procesos después. A menudo un proceso en ejecución puede hacer llamadas al sistema para crear uno o más procesos nuevos para que le ayuden en su trabajo. Crear nuevos procesos es particularmente útil cuando el trabajo a realizar puede formularse fácilmente en términos de varios procesos relacionados, pero por otra parte independientes, que interactúan entre sí. Por ejemplo, si se está extrayendo una gran cantidad de datos a través de una red de comunicación para su procesamiento subsiguiente, puede ser conveniente crear un proceso para extraer los datos y ponerlos en un buffer compartido mientras que un segundo proceso va retirando los datos del buffer y los procesa. En el caso de un sistema multiprocesador podemos conseguir que todo el trabajo se haga efectivamente más rápido si permitimos que esos dos procesos se ejecuten cada uno en una CPU diferente.
+
+
+
+
+**En UNIX** sólo existe una llamada al sistema para crear un nuevo proceso: fork. Esta llamada crea un clon (una copia exacta) del proceso que hizo la llamada. Después del fork, los dos procesos, el padre y el hijo, tienen la misma imagen de memoria, las mismas variables de entorno y los mismos ficheros abiertos. Eso es todo lo que hay. Usualmente, a continuación el proceso hijo ejecuta execve o una llamada al sistema similar para cambiar su imagen de memoria y pasar a ejecutar un nuevo programa. Por ejemplo cuando un usuario teclea un comando del shell como por ejemplo, sort, el shell ejecuta un fork para crear un proceso hijo, el cual es el que realmente ejecuta el programa correspondiente al sort. La razón de realizar estos dos pasos es permitir al hijo que manipule los descriptores de fichero del shell después del fork pero antes de que el execve lleve a cabo la redirección de la entrada estándar, la salida estándar y la salida de errores estándar.
+
+Lo anterior contrasta con **lo que sucede en Windows**, donde mediante una única llamada al sistema de Win32, CreateProcess, se realiza tanto la creación del proceso como la carga del programa correcto dentro del nuevo proceso. Esta llamada tiene 10 parámetros que incluyen entre ellos el programa que hay que ejecutar, los parámetros de la línea de comandos que va a recibir el programa, varios atributos de seguridad, bits que controlan si se heredan los ficheros abiertos, información sobre la prioridad del proceso, una especificación de la ventana que hay que crear (en su caso) para el proceso, y un puntero a una estructura (un registro) en la que se envíe de retorno toda la información sobre el nuevo proceso creado, al proceso que hace la llamada. Adicionalmente a CreateProcess, Win32 cuenta con unas 100 llamadas al sistema más, para gestionar y sincronizar los procesos, así como para operaciones relacionadas
+
+
+
+Tanto en UNIX como en Windows, después de crear un proceso, tanto el padre como el hijo cuentan con sus propios espacios de direcciones disjuntos. Si cualquiera de los procesos modifica una palabra en su espacio de direcciones, ese cambio es invisible para cualquier otro proceso. **En UNIX, el espacio de direcciones inicial del hijo es una copia del espacio de direcciones del padre, pero hay dos espacios de direcciones distintos involucrados; la memoria no escribible se comparte** (algunas implementaciones de UNIX comparten el área de código entre los dos, ya que el código nunca se modifica). Sin embargo es posible que un nuevo proceso creado comparta algunos de los demás recursos del padre, tales como los ficheros abiertos. **En Windows, los espacios de direccionamiento del padre y el hijo son diferentes desde el primer momento.**
+
+
+== Terminacion de los procesos ==
+Tras la creacion de un proceso comienza su ejecución realizando el trabajo que se le ha encomendado. Sin embargo nada dura para siempre, ni siquiera los procesos. Pronto o tarde el nuevo proceso debe terminar, usualmente debido a una de las siguientes causas.
+1- El proceso completa su trabajo y termina (voluntariamente).
+2- El proceso detecta un error y termina (voluntariamente).
+3- El sistema detecta un error fatal del proceso y fuerza su terminacion.
+4- Otro proceso fuerza la terminacion del proceso (por ejemplo en UNIZ mediante la llamada al sistema KILL)
+
+La mayoría de los procesos terminan debido a que han completado su trabajo. Cuando un compilador ha compilado el programa que se le ha dado, el compilador ejecuta una llamada al sistema para decirle al sistema operativo que ha finalizado. Esta llamada es exit en UNIX y ExitProcess en Windows. Los programas orientados a la pantalla soportan también la terminación voluntaria. Los procesadores de texto, navegadores y programas similares cuentan siempre con un icono o una opción de menú para que el usuario pueda pinchar con el ratón indicándole al proceso que borre cualquier fichero temporal que esté abierto y a continuación
+termine.
+
+
+
+
+
+
+
 
 
