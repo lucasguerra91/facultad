@@ -1,6 +1,5 @@
 Content-Type: text/x-zim-wiki
 Wiki-Format: zim 0.4
-Creation-Date: 2018-01-25T13:06:36-03:00
 
 ====== Capitulo 1 ======
 Created jueves 25 enero 2018
@@ -65,6 +64,36 @@ Aunque cada fase se presenta de manera discreta, en realidad nunca se puede llev
 
 === Incorporacion de las consideraciones de la interaccion humano-computadora ===
 En años recientes, el estudio de la interaccion humano-computadora (HCI) se ha vuelto cada vez mas importante para los analistas de sistemas. Aunque la definicion sigue evolucionando, los investigadores caracterizan a la HCI como el "aspecto de una computadora que permite las comunicaciones e interacciones entre ella y los hmanos. Es el nivel de la computadora que esta entre ella y los humanos". Los analistas que utilizan esta metodologia se enfocan en las personas en vez del trabajo a realizar o la IT involucrada. Su metodologia para un problema es multifacetica ya que analizan los factores humanos ergonomicos, cognitivos, afectivos y de comportamiento involucrados en las tareas de los usuarios, los procesos de solucion de problemasy el contexto de la interaccion. La interaccion entre humano y computadora se concentra en las necesidades humanas en vez de enfocarse primero en las necesidades de la organizacion y del sistema.
+Su carrera profesional se puede beneficiar gracias a la sólida comprensión de los fundamentos de la HCI. La demanda de analistas capaces de incorporar la HCI al proceso de desarrollo de sistemas sigue en aumento, a medida que cada vez más empresas se dan cuenta de que la calidad de los sistemas y la calidad de la vida laboral se pueden mejorar mediante el empleo de una metodología centrada en los humanos desde el inicio de un proyecto.
+La aplicación de los principios de la interacción humano-computadora implica descubrir y resolver las frus-
+traciones que los usuarios experimentan al usar tecnologías de información, entre las que se cuenta la sospecha de que el analista malentendió el trabajo que se iba a realizar, las tareas involucradas y cuál era la mejor manera de apoyarlas; sensación de impotencia o falta de control al trabajar con el sistema; violaciones intencionales a la privacidad; problemas al navegar por las pantallas y menús del sistema, y una discrepancia general entre el sistema que se diseñó y la forma en que los mismos usuarios piensan con respecto a sus procesos laborales.
+Cuando los analistas de sistemas adoptan una metodología HCI, pueden erradicar o minimizar las malas
+apreciaciones y los errores de diseño que provocan el rechazo de los usuarios hacia los nuevos sistemas o su
+abandono poco tiempo después de la implementación.
+Los investigadores de la HCI observan ventajas al incluir la HCI en cada fase del SDLC. Es una metodolo-
+gía que vale la pena usar y para reflejar esto trataremos de llevar los intereses humanos en forma explícita a cada fase del SDLC. Como estudiante de análisis de sistemas, usted también puede ofrecer una nueva perspectiva al SDLC para identificar las oportunidades que tienen los diseñadores de lidiar con las cuestiones de la HCI y las formas en que los usuarios pueden tener una participación más primordial en cada fase del SDLC.
+
+== Identificacion de los problemas, oportunidades y objetivos ==
+En esta primera fase del ciclo de vida del desarrollo de sistemas, el analista se encarga de identificar correctamente los problemas, las oportunidades y los objetivos. Esta etapa es imprescindible para el éxito del resto del proyecto: ya que a nadie le gusta desperdiciar el tiempo resolviendo un problema mal caracterizado.
+Las personas involucradas en la primera fase son los usuarios, los analistas y los administradores de sistemas que coordinan el proyecto. En esta fase las actividades consisten en entrevistar a los encargados de la administración de los usuarios, sintetizar el conocimiento obtenido, estimar el alcance del proyecto y documentar los resultados. 
+El resultado de esta fase es un informe de viabilidad, el cual contiene la definición de un problema y sintetiza los objetivos. Después, la administración de la empresa debe tomar una decisión en cuanto a proceder o no con el proyecto propuesto.
+
+== Determinacion de los requerimientos de informacion del factor humano ==
+La siguiente fase a la que entra el analista es determinar las necesidades de los usuarios involucrados, mediante el uso de varias herramientas, para comprender la forma en que interactúan en el contexto laboral con sus sistemas de información actuales. El analista utilizará métodos interactivos como entrevistas, muestreos e investigación de datos duros, además de los cuestionarios y los métodos discretos, como observar el comportamiento de los encargados al tomar las decisiones y sus entornos de oficina, y los métodos integrales como la creación de prototipos. Las personas involucradas en esta fase son los analistas y los usuarios, por lo general los gerentes y los trabajadores de operaciones. El analista de sistema debe conocer los detalles sobre las funciones del sistema actual: el quién (las personas involucradas), el qué (la actividad de la empresa), el dónde (el entorno en el que se lleva a cabo el trabajo), el cuándo (la coordinación) y el cómo (de qué manera particular se realizan los procedimientos actuales) de la empresa a la que está estudiando. Después, el analista debe preguntar por qué la empresa utiliza el sistema actual. Puede haber buenas razones por las cuales la empresa trabaje con los métodos actuales, razón por la que se deben tener en cuenta al diseñar un nuevo sistema.
+ El desarrollo ágil es una metodologia orientada a objetos (OOA) para el desarrollo de sistemas, en la cual se incluye un método de desarrollo(junto con la generacion de los requerimientos de informacion) asi como herramientas de software.
+
+== Análisis de las necesidades del sistemas ==
+Aquí también hay herramientas y técnicas especiales que ayudan al analista a realizar las determinaciones de los requerimientos. Las herramientas como los diagramas de flujo de datos (DFD) para graficar la entrada, los procesos y la salida de las funciones de la empresa, o los diagramas de actividad o de secuencia para mostrar la secuencia de los eventos, sirven para ilustrar a los sistemas de una manera estructurada y gráfica. A partir de los diagramas de flujo de datos, de secuencia u otros tipos de diagramas se debe desarrollar un diccionario de datos para enlistar todos los elementos de datos utilizados en el sistema, así como sus especificaciones.
+Durante esta fase, el analista de sistemas también analiza las decisiones estructuradas llevadas a cabo. Las decisiones estructuradas son aquellas para las que se pueden determinar condiciones, alternativas de condición, acciones y reglas de acción. Hay tres métodos principales para el análisis de las decisiones estructuradas: inglés/ español estructurado, tablas de decisión y árboles de decisión. En este punto del SDLC, el analista de sistemas prepara una propuesta de sistemas en la que sintetiza todo lo que ha averiguado sobre los usuarios, la capacidad de uso y la utilidad de los sistemas actuales; incluye un análisis de costo-beneficio de las alternativas y, si se requiere, hace recomendaciones. Si la administración acepta una de las recomendaciones, el análisis continúa por esa vía. Cada problema de sistemas es único, por lo que nunca hay sólo una solución correcta. La manera en que se formule una recomendación o solución depende de las cualidades individuales y la capacitación profesional de cada analista, y de su interacción con los usuarios en el contexto de su entorno laboral.
+
+== Diseño del sistema recomendado ==
+En la fase de diseño del SDLC, el analista de sistemas utiliza la información recolectada antes para realizar el diseño lógico del sistema de información. El analista diseña los procedimientos para ayudar a que los usuarios introduzcan los datos con precisión, de manera que los datos que entren al sistema de información sean los correctos. Además, el analista debe ayudar a que los usuarios completen la entrada de datos efectiva al sistema de información mediante el uso de las técnicas del buen diseño de formularios y páginas Web o pantallas.
+
+
+
+
+
+
 
 
 
