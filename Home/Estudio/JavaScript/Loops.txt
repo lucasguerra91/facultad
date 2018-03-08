@@ -1,0 +1,40 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-03-06T22:03:38-03:00
+
+====== Loops ======
+
+=== Bucle FOR ===
+--- 
+//let vacationSpots = ['Italy' , 'London' , 'Paris'];//
+//for (let vacationSpotIndex = 0; vacationSpotIndex  < vacationSpots.length; vacationSpotIndex++ ){//
+//  console.log('I would love to visit ' + vacationSpots[vacationSpotIndex]);//
+//}//
+--- 
+
+== Tambien lo podemos hacer para atras ==
+--- 
+**let vacationSpots = ['Italy' , 'London' , 'Paris'];**
+
+**for (let vacationSpotIndex = vacationSpots.length - 1 ; vacationSpotIndex >= 0; vacationSpotIndex--){**
+**  console.log('I would love to visit ' + vacationSpots[vacationSpotIndex]);**
+**}**
+--- 
+
+== Comparando valores entre dos listas con bucle: ==
+---
+**let myPlaces = ['Italy' , 'London' , 'Paris'];**
+**let friendPlaces = ['New York' , 'London' , 'Peru'];**
+
+**for(let myPlacesIndex = 0; myPlacesIndex < myPlaces.length; myPlacesIndex++){**
+**  for(let friendPlacesIndex = 0; friendPlacesIndex < friendPlaces.length; friendPlacesIndex++){**
+**  	if(myPlaces[myPlacesIndex] === friendPlaces[friendPlacesIndex]){**
+**      console.log(myPlaces[myPlacesIndex]);**
+**    }**
+**  }**
+**}**
+
+---
+
+
+=== While ===

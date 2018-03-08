@@ -1,0 +1,111 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-03-06T22:43:16-03:00
+
+====== Iterators ======
+Created martes 06 marzo 2018
+
+=== Introduction to Iterators ===
+One of the most common tasks a developer translates into code is looping over the contents of an array. Programmers often accomplish this with a for loop. However, as is often the case when a task occurs frequently, JavaScript now provides methods that simplify this task.
+These methods, called iterators, are called on arrays and complete such tasks as altering each element and selecting elements that fit certain criteria.
+
+== forEach() ==
+The first iterator method that we're going to learn is .forEach(). Aptly named, .forEach() will execute the same code on each element of an array.
+**---**
+**let groceries = ['whole wheat flour', 'brown sugar', 'salt', 'cranberries', 'walnuts']; **
+**groceries.forEach(function(groceryItem) {**
+**  console.log(' - ' + groceryItem);**
+**});**
+**---**
+
+== We can simplify this code using arrow function syntax. ==
+---
+**groceries.forEach(groceryItem => console.log(' - ' + groceryItem));**
+---
+
+== Full Example ==
+**---**
+**let fruits = ['mango', 'papaya', 'pineapple', 'apple'];**
+
+**// Iterate over fruits below**
+
+**fruits.forEach(function(fruitsItem){**
+**               console.log('I want to eat a '+ fruitsItem);**
+**               });**
+
+**fruits.forEach(fruitsItem => console.log('I want to eat a ' + fruitsItem));**
+---.
+
+
+=== .map() ===
+In the previous exercise, we called the .forEach() method and learned that it returns undefined. It also does not change the array it is called upon. What if we do want to change the contents of the array? We can use .map()!
+
+**let numbers = [1, 2, 3, 4, 5]; **
+
+**let bigNumbers = numbers.map(function(number) {**
+**  return number * 10;**
+**});**
+
+The first line is an array of numbers.
+let bigNumbers = numbers.map creates a new array, bigNumbers, in which the returned values of the .map() method will be saved and calls the .map() method on the numbers array.
+(function(number) { creates a function that takes a single parameter, number, and opens the block of code for that function.
+return number * 10; is the code we wish to execute upon each element in the array. This will save each value from the numbers array, multiplied by 10, to the bigNumbers array.
+}); closes the function code block and .map() method in that order.
+The syntax for .map() is almost the same as the syntax for .forEach(), with one important change. Notice that directly before the function call, the code reads, let bigNumbers =. This is because .map() returns a new array with elements that have been modified by the code in its block. bigNumbers is the new array in which the method will save the values.
+
+.map() can also be written with arrow function syntax.
+
+**let numbers = [1, 2, 3, 4, 5]; **
+**let bigNumbers = numbers.map(numbers => numbers * 10);**
+
+
+== Ejemplo ==
+**let animals = ['Hen', 'elephant', 'llama', 'leopard', 'ostrich', 'Whale', 'octopus', 'rabbit', 'lion', 'dog'];**
+
+**// Create the secretMessage array below**
+**let secretMessage = animals.map(function(animal){**
+**      return animal[0];**
+**  });**
+
+**let secretMessage = animals.map(animal => animal[0]);**
+
+
+**console.log(secretMessage.join(''));**
+
+**let bigNumbers = [100, 200, 300, 400, 500];**
+
+**// Create the smallNumbers array below**
+**let smallNumbers = bigNumbers.map(function(number){**
+**  return number / 100 ;**
+**});**
+
+=== Filter ===
+---
+**let randomNumbers = [375, 200, 3.14, 7, 13, 852];**
+
+**// Call .filter() on randomNumbers below**
+**let smallNumbers = randomNumbers.filter(function(number){**
+**  return number < 250;**
+**});**
+
+**let favoriteWords = ['nostalgia', 'hyperbole', 'fervent', 'esoteric', 'serene'];**
+
+**let longFavoriteWords = favoriteWords.filter(function(word) {**
+**  return word.length > 7;**
+**});**
+
+**// Refactor the code above using arrow function syntax**
+**let longFavoriteWords = favoriteWords.filter(word => word.length > 7 );**
+---
+
+
+Review: Iterators
+You have learned a number of useful methods in this lesson as well as how to use the JavaScript documentation from the Mozilla Developer Network to discover and understand additional methods. Let's review!
+
+.forEach() is used to execute the same code on every element in an array but does not change the array and returns undefined.
+.map() executes the same code on every element in an array and returns a new array with the updated elements.
+.filter() checks every element in an array to see if it meets certain criteria and returns a new array with the elements that return truthy for the criteria.
+All iterator methods can be written using arrow function syntax. In fact, given the succinctness and the implicit return of arrow function syntax, this is quickly becoming the preferred way to write these types of method calls.
+You can visit the Mozilla Developer Network to learn more about iterator methods (and all other parts of JavaScript!).
+Additional iterator methods such as .some(), .every(), .reduce() perform different functions.
+

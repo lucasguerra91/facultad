@@ -1,0 +1,31 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-03-06T21:47:55-03:00
+
+====== Arrays ======
+Created martes 06 marzo 2018
+
+Tiene varias funciones como:
+.length que nos permite saber la medida de la cadena
+.push('item1' , 'item2')  // agrega campos
+.pop() // elimina 
+
+
+---------------------------------------------------------------------------
+//let condiments = ['Ketchup', 'Mustard', 'Soy Sauce', 'Sriracha'];//
+
+//const utensils = ['Fork', 'Knife', 'Chopsticks', 'Spork'];//
+
+//condiments.push('canela');//
+//console.log(condiments);//
+
+//condiments = ['canela'];  // esto si se puede//
+//console.log(condiments);//
+
+//utensils.pop();//
+//console.log(utensils);//
+
+//utensils = ['cacerola'];  // esto no se puede porque es constante , se puede modificar pero no volver a asignar//
+
+
+----------------------------------------------------------------------------

@@ -1,0 +1,16 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-03-06T21:11:26-03:00
+
+====== Funciones ======
+Created martes 06 marzo 2018
+
+Funciones lineales 
+**const** myNightSky **=** () **=>**  'Night Sky: ' + satellite + ', ' + stars + ', ' + galaxy;  // Esta funcion no precisa parametro y retorna una cadena de texto
+
+Esto es lo mismo que :
+
+//const myNightSky = () => {//
+//  return 'Night Sky: ' + satellite + ', ' + stars + ', ' + galaxy ;//
+//};//
+

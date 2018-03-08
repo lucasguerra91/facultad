@@ -1,0 +1,9 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-03-06T21:16:25-03:00
+
+====== Scope ======
+Created martes 06 marzo 2018
+
+Se refiere basicamente a la manera en la que declaramos las variables. Una variable puede der "global" y ser accedida desde cualquier parte del código, como dentro de una funcion, o puede ser de caracter "local", como por ejemplo una variable declarada dentro de una funcion que no puede ser llamada desde fuera de la misma.
+
