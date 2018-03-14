@@ -1,6 +1,5 @@
 Content-Type: text/x-zim-wiki
 Wiki-Format: zim 0.4
-Creation-Date: 2018-03-06T22:43:16-03:00
 
 ====== Iterators ======
 Created martes 06 marzo 2018
@@ -109,3 +108,6 @@ All iterator methods can be written using arrow function syntax. In fact, given 
 You can visit the Mozilla Developer Network to learn more about iterator methods (and all other parts of JavaScript!).
 Additional iterator methods such as .some(), .every(), .reduce() perform different functions.
 
+
+
+→ d3l4nk

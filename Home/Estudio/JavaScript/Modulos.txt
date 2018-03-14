@@ -1,0 +1,183 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Modulos ======
+Created jueves 08 marzo 2018
+
+=== module.exports ===
+We can get started with modules by defining a module in one file, and making the module available for use in another file. Below is an example of how to define a module, and how to export it using the statement module.exports.
+In menu.js we write:
+
+**let Menu = {};**
+**Menu.specialty = "Roasted Beet Burger with Mint Sauce";**
+
+**module.exports = Menu;**
+
+Let's consider what this code means.
+let Menu = {}; creates the object that represents the module Menu. The statement contains an uppercase variable named Menu which is set equal to an object.
+Menu.specialty is defined as a property of the Menu module. We add data to the Menu object by setting properties on that object, and giving the properties a value.
+"Roasted Beet Burger with Mint Sauce"; is the value stored in the Menu.specialty property.
+module.exports = Menu; exports the Menu object as a module. module is a variable that represents the module, and exports exposes the module as an object.
+The pattern we use to export modules is thus:
+
+Define an object to represent the module.
+Add data or behavior to the module.
+
+=== require() ===
+To make use of the exported module and the behavior we define within it, we import the module. A common way to do this is with the require() function.
+
+For instance, say we want the module to control the menu's data and behavior, and we want a separate file to handle placing an order. We would create a separate file order.js and import the Menu module from menu.js to order.js using require():
+
+In order.js we would write:
+
+**const Menu = require('./menu.js');**
+
+**function placeOrder() {**
+**  console.log('My order is: ' + Menu.specialty);**
+**}**
+
+**placeOrder();**
+
+We now have the entire behavior of Menu available in order.js. Here, we notice:
+
+In order.js we import the module by creating a variable with const called Menu and setting it equal to the value of the require() function. We can set this variable to any variable name we like, such as menuItems.
+require() is a JavaScript function that enables a module to load by passing in the module's filepath as a parameter.
+'./menu.js' is the argument we pass to the require() function.
+The placeOrder() function then uses the Menu module in its function definition. By calling Menu.specialty, we access the property specialty defined in the Menu module.
+We can then invoke the function using placeOrder()
+Taking a closer look, the pattern to import a module is:
+
+Import the module
+Use the module and its properties within a program.
+
+=== Ejemplo de objeto dentro de modulo ===
+**let Airplane = {};**
+**export default Airplane;**
+
+**Airplane.availableAirplanes = [ ];**
+
+**Airplane.availableAirplanes = [**
+	**  {**
+	**    name: 'AeroJet',**
+	**    fuelCapacity: 800**
+	**  },**
+  	**  {**
+		**name: 'SkyJet',**
+	**    fuelCapacity: 500**
+	**  }**
+**]**
+
+=== import ===
+
+ES6 module syntax also introduces the import keyword for importing objects. In our order.js example, we import an object like this:
+
+**import Menu from './menu';**
+
+The import keyword begins the statement.
+The keyword Menu here specifies the name of the variable to store the default export in.
+from specifies where to load the module from.
+'./menu' is the name of the module to load. When dealing with local files, it specifically refers to the name of the file without the extension of the file.
+We can then continue using the Menu module in the order.js file
+
+
+**import Airplane from './airplane';**
+
+**function displayFuelCapacity (){**
+**    Airplane.availableAirplanes.forEach(function(element){**
+**      console.log('Fuel Capacity of ' + element.name+ ' : ' + element.fuelCapacity);**
+**    });**
+**}**
+
+**displayFuelCapacity();**
+
+=== Export named exports ===
+Exportando directamente al declarar
+
+**export let availableAirplanes = [**
+**  {**
+**    name: 'AeroJet',**
+**    fuelCapacity: 800, **
+**    maxSpeed: 1200 , **
+**    minSpeed: 300,**
+**    availableStaff: ['pilots', 'flightAttendants', 'engineers', 'medicalAssistance', 'sensorOperators']**
+**  },**
+  
+**  {**
+**		name: 'SkyJet',**
+**    fuelCapacity: 500,**
+**   	maxSpeed: 800 , **
+**    minSpeed: 200,**
+**    availableStaff: ['pilots', 'flightAttendants']**
+**  }**
+  
+**]**
+
+**export let flightRequirements = {**
+**  requiredStaff : 4 , **
+**  requiredSpeedRange: 700**
+**};**
+
+**export function meetsStaffRequirements(availableStaff , requiredStaff){**
+**  if ( availableStaff.length >= requiredStaff) {**
+**    return true ;**
+**  }else {**
+**    return false ; **
+**  }**
+**}**
+
+**export function meetsSpeedRangeRequirements(maxSpeed, minSpeed, requiredSpeedRange) {**
+**  let range = maxSpeed - minSpeed;**
+**  if (range > requiredSpeedRange) {**
+**    return true;**
+**    } else {**
+**    return false;**
+**  }**
+**}**
+
+
+Con su correspondiente import
+
+**import {availableAirplanes , flightRequirements , meetsStaffRequirements ,meetsSpeedRangeRequirements } from './airplane';**
+
+**function displayFuelCapacity (){**
+**    availableAirplanes.forEach(function(element){**
+**      console.log('Fuel Capacity of ' + element.name+ ' : ' + element.fuelCapacity);**
+**    });**
+**}**
+
+**function displayStaffStatus() {**
+**  availableAirplanes.forEach(function(element) {**
+**   console.log(element.name + ' meets staff requirements: ' + meetsStaffRequirements(element.availableStaff, flightRequirements.requiredStaff) );**
+**  });**
+**}**
+
+**function displaySpeedRangeStatus(){**
+**  availableAirplanes.forEach(function(element){**
+**    console.log(element.name + ', meets speed range requirements: ' + meetsSpeedRangeRequirements(element.maxSpeed, element.minSpeed, flightRequirements.requiredSpeedRange));**
+**  });**
+**} **
+
+**displayFuelCapacity();**
+**console.log(' ');**
+**displayStaffStatus();**
+**console.log(' ');**
+**displaySpeedRangeStatus();**
+
+
+=== Export con alias ===
+**export {**
+	** availableAirplanes as aircrafts , **
+	**flightRequirements as flightReqs ,**
+	**meetsStaffRequirements as meetsStaffReqs , **
+	**meetsSpeedRangeRequirements as meetsSpeedRangeReqs **
+**};**
+
+=== Import con alias ===
+**import {**
+	**aircrafts , **
+	**flightReqs , **
+	**meetsStaffReqs ,**
+	**meetsSpeedRangeReqs **
+**} from './airplane';**
+
+

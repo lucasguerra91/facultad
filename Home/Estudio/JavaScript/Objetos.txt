@@ -1,6 +1,5 @@
 Content-Type: text/x-zim-wiki
 Wiki-Format: zim 0.4
-Creation-Date: 2018-03-07T20:19:45-03:00
 
 ====== Objetos ======
 Created miércoles 07 marzo 2018
@@ -177,4 +176,35 @@ The set seatingCapacity() setter method accepts newCapacity as a variable. The n
 Inside of the .seatingCapacity() setter we use a conditional statement to check if the newCapacity variable (our new value) is a number.
 If the input value is a number (valid input), then we use this._seatingCapacity to change the value assigned to _seatingCapacity. If it is not valid, then we output a message to the user.
 
+== Ejemplo ==
+Named export, o exportacion individual
 
+**let availableAirplanes = [**
+**  {**
+**    name: 'AeroJet',**
+**    fuelCapacity: 800, **
+**    availableStaff: ['pilots', 'flightAttendants', 'engineers', 'medicalAssistance', 'sensorOperators']**
+**  },**
+  
+**  {**
+**		name: 'SkyJet',**
+**    fuelCapacity: 500,**
+**    availableStaff: ['pilots', 'flightAttendants']**
+**  }**
+  
+**]**
+
+**let flightRequirements = {**
+**  requiredStaff : 4 , **
+**};**
+
+**function meetsStaffRequirements(availableStaff , requiredStaff){**
+**  if ( availableStaff.length >= requiredStaff) {**
+**    return true ;**
+**  }else {**
+**    return false ; **
+**  }**
+**}**
+
+
+**export { availableAirplanes , flightRequirements , meetsStaffRequirements};**

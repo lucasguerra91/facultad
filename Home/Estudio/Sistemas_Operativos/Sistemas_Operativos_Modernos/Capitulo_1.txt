@@ -97,6 +97,38 @@ Tras la creacion de un proceso comienza su ejecución realizando el trabajo que 
 La mayoría de los procesos terminan debido a que han completado su trabajo. Cuando un compilador ha compilado el programa que se le ha dado, el compilador ejecuta una llamada al sistema para decirle al sistema operativo que ha finalizado. Esta llamada es exit en UNIX y ExitProcess en Windows. Los programas orientados a la pantalla soportan también la terminación voluntaria. Los procesadores de texto, navegadores y programas similares cuentan siempre con un icono o una opción de menú para que el usuario pueda pinchar con el ratón indicándole al proceso que borre cualquier fichero temporal que esté abierto y a continuación
 termine.
 
+Razones por las que termina un proceso:
+- Errores de ejecucion, por ejemplo que no exista el fichero que se quiere ejecutar
+- Errores de programacion en el programa
+- Es posible que un proceso haga una llamada a sistema para terminar otro proceso
+
+=== Jerarquías de Procesos ===
+En algunos sistemas, cuando un proceso crea otro proceso, el proceso padre y el proceso hijo, continúan estando asociados de cierta manera. El proceso hijo puede a su vez crear más procesos formando una jerarquía de procesos. De forma diferente a las plantas y animales que se reproducen de forma sexual, un proceso tiene un único padre (pero cero, uno, dos o más hijos). En UNIX, un proceso y todos sus hijos y demás descendientes forman juntos un grupo de procesos. 
+Cuando un usuario envía una señal desde el teclado (como por ejemplo tecleando Ctrl-C), la señal se propaga a todos los miembros del grupo de procesos actualmente asociados con el teclado (normalmente todos los procesos activos que fueron creados en la ventana actual). Individualmente, cada proceso puede capturar la señal, ignorar la señal o emprender la acción por defecto, que es la de ser matado por la señal recibida.
+Otro ejemplo del papel que puede jugar la jerarquía de procesos es cómo se inicializa UNIX durante su arranque. Hay un proceso especial presente en la imagen de arranque denominado init. Cuando este proceso comienza su ejecución lee un fichero donde figura el número de terminales con que cuenta el sistema. Acto seguido init crea mediante la llamada al sistema fork un nuevo proceso por terminal. Estos procesos esperan a que alguien se conecte al sistema a través del correspondiente terminal. Cada vez que un usuario logra conectarse, el proceso asociado al terminal ejecuta un shell para aceptar comandos. A su vez estos comandos pueden dar lugar a la creación de más procesos. En definitiva, todos los procesos en el sistema pertenecen a un único árbol que tiene al proceso init como raíz. 
+Por el contrario, Windows no ofrece ningún concepto de jerarquía de procesos. Todos los procesos son iguales. El único lugar donde hay algo parecido a una jerarquía de procesos es
+que cuando se crea un proceso, su proceso padre recibe un puntero a un conjunto de información (lo que se denomina un handle) que puede utilizar para controlar al proceso hijo. Sin embargo, el padre es libre de pasar o no esa información a algún otro proceso, lo que significa que no está asegurado por el sistema el mantenimiento de la jerarquía de los procesos creados. 
+Los procesos en UNIX no pueden desentenderse de sus hijos
+
+=== Estado de los procesos ===
+Un proceso puede tener 3 estados , bloqueado preparado y en ejecucion. 
+Bloqueado: no puede ejecutarse porque le faltan datos (quizas output de otro proceso que tomara como input) 
+Preparado: listo para ser ejecutado, a la espera de que le asigenen procesador
+En ejecucion: utilizando procesador en ese momento
+
+== Pueden darse 4 transiciones ==
+1- De ejecucion a bloqueado
+2- De bloqueado a preparado
+3- De preparado a ejecucion
+4- Seleccion del proceso preparado que se va a ejecutar
+
+
+
+=== Implementacion de procesos ===
+Para implementar el modelo de los procesos , el sistema operativo mantiene una tabla (un array de registros o estructuras), denominada tabla de procesos, con una entrada por proceso.
+Algunos autores denominan a cada una de esas entradas descriptor de proceso o bloque de control de proceso.
+Estas entradas contienen informacion sobre el estado de cada proceso, su contador de programa, su puntero de pila, su asignacion de memoria, el estado de sus ficheros abiertos, la informacion relativa a su planificacion y a la contabilidad de recursos que ha consumido, asi como cualquier otra informacion sobre el proceso que deba guardarse cuando el proceso conmute del estado en ejecucion al estado de preparado o bloqueado, de forma que su ejecucion pueda retomarse posteriormente como si nunca se hubiera detenido.
+
 
 
 
