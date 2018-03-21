@@ -206,6 +206,23 @@ Los mitos que aún sostienen los trabajadores del software han sido alimentados 
 **Realidad:** La ingeniería de software no consiste en producir documentos. Se trata de crear un producto de calidad. La mejor calidad conduce a menos repeticiones, lo que da como resultado tiempos de entrega más cortos.
 
 
+=== Otras lecturas ===
+Hay literalmente miles de libros escritos sobre software de cómputo. La gran mayoría analiza lenguajes de
+programación o aplicaciones de software, pero algunos estudian al software en sí mismo. Pressman y Herron
+(Software Shock, Dorset House, 1991) presentaron un estudio temprano (dirigido a las personas comunes)
+sobre el software y la forma en la que lo elaboran los profesionales. El libro de Negroponte que se convirtió
+en un éxito de ventas (Being Digital, Alfred A. Knopf, Inc., 1995) describe el panorama de la computación y
+su efecto general en el siglo XXI . DeMarco (Why Does Software Cost So Much?, Dorset House, 1995) ha produ-
+cido varios ensayos amenos y profundos sobre el software y el proceso con el que se elabora.
+Minasi (The Software Conspiracy: Why Software Companies Put out Faulty Products, How They Can Hurt You,
+and What You Can Do, McGraw-Hill, 2000) afirma que el “flagelo moderno” de los errores en el software puede
+eliminarse y sugiere formas de lograrlo. Compaine (Digital Divide: Facing A Crisis or Creating a Myth, MIT Press,
+2001) asegura que la “división” entre aquellos que tienen acceso a recursos de la información (por ejemplo,
+la web) y los que no lo tienen se está estrechando conforme avanzamos en la primera década de este siglo.
+Los libros escritos por Greenfield (Everyware: The Dawning Age of Ubiquitous Computing, New Riders Publish-
+ing, 2006) y Loke (Context-Aware Pervasive Systems: Architectures for a New Breed of Applications, Auerbach,
+2006) introducen el concepto de software de “mundo abierto” y predicen un ambiente inalámbrico en el que
+el software deba adaptarse a los requerimientos que surjan en tiempo real.
 
 
 

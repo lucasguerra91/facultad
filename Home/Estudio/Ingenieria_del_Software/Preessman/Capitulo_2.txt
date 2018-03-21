@@ -1,0 +1,44 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Capitulo 2 ======
+Created miércoles 21 marzo 2018
+
+=== Modelo de procesos ===
+Debido a que el software, como todo capital, es conocimiento incorporado y a que el conocimiento originalmente se halla disperso, tácito, latente e incompleto en gran medida, el desarrollo de software es un proceso de aprendizaje social. El proceso es un diálogo en el que el conocimiento que debe convertirse en software se reúne e incorpora en éste. El proceso genera interacción entre usuarios y diseñadores, entre usuarios y herramientas cambiantes, y entre diseñadores y herramientas en evolución [tecnología]. Es un proceso que se repite y en el que la herramienta que evoluciona sirve por sí misma como medio para la comunicación: con cada nueva ronda del diálogo se genera más conocimiento útil a partir de las personas involucradas.
+
+=== Proceso de Software ===
+**¿Qué es?** Cuando se trabaja en la construcción de un producto o sistema, es importante ejecutar una serie de pasos predecibles el mapa de carreteras que lo ayuda a obtener a tiempo un resultado de alta calidad.  El mapa que se sigue se llama “proceso del software”.
+
+**¿Quién lo hace?** Los ingenieros de software y sus gerentes adaptan el proceso a sus necesidades y luego lo siguen. Además, las personas que solicitaron el software tienen un papel en el proceso de definición, elaboración y prueba.
+
+**¿Por qué es importante?** Porque da estabilidad, control y organización a una actividad que puede volverse caótica si se descontrola. Sin embargo, un enfoque moderno de ingeniería de software debe ser “ágil”. Debe incluir sólo aquellas actividades, controles y productos del trabajo que sean apropiados para el equipo del proyecto y para el producto que se busca obtener.
+
+**¿Cuáles son los pasos?** En un nivel detallado, el proceso que se adopte depende del software que se esté elaboran- do. Un proceso puede ser apropiado para crear software
+destinado a un sistema de control electrónico de un aeroplano, mientras que para la creación de un sitio web será necesario un proceso completamente distinto.
+
+**¿Cuál es el producto final?** Desde el punto de vista de un ingeniero de software, los productos del trabajo son los programas, documentos y datos que se producen como consecuencia de las actividades y tareas definidas por el proceso.
+
+**¿Cómo me aseguro de que lo hice bien?** Hay cierto número de mecanismos de evaluación del proceso del software que permiten que las organizaciones determinen
+la “madurez” de su proceso. Sin embargo, la calidad, oportunidad y viabilidad a largo plazo del producto que se elabora son los mejores indicadores de la eficacia del proceso que se utiliza.
+
+=== Definicion de actividad estructural ===
+Para un proyecto de software pequeño solicitado por una persona (en una ubicación remota) con requerimientos sencillos y directos, la actividad de comunicación tal vez no incluya algo más que una llamada telefónica con el participante apropiado. Entonces, la única acción necesaria es una conversación telefónica, y las tareas del trabajo (el conjunto de tareas) que engloba son las siguientes:
+1. Hacer contacto con el participante por vía telefónica.
+2. Analizar los requerimientos y tomar notas.
+3. Organizar las notas por escrito en una formulación breve de los requerimientos.
+4. Enviar correo electrónico al participante para que revise y apruebe.
+Si el proyecto fuera considerablemente más complejo, con muchos participantes y cada uno con un distinto conjunto de requerimientos (a veces en conflicto), la actividad de comunicación puede tener seis acciones distintas (descritas en el capítulo 5): concepción, indagación, elaboración, negociación, especificación y validación. Cada una de estas acciones de la ingeniería del software tendrá muchas tareas de trabajo y un número grande de diferentes productos finales.
+
+
+En las últimas décadas se han propuesto numerosos enfoques para la evaluación y mejora de un proceso del software:
+**Método de evaluación del estándar CMMI para el proceso de mejora (SCAMPI**, por sus siglas en inglés): proporciona un modelo de cinco fases para evaluar el proceso: inicio, diagnóstico, establecimiento, actuación y aprendizaje. El método SCAMPI emplea el SEI CMMI como la base de la evaluación [SEI00].
+
+**Evaluación basada en CMM para la mejora del proceso interno (CBA IPI**, por sus siglas en inglés): proporciona una técnica de diagnóstico para evaluar la madurez relativa de una organización de software; usa el SEI CMM como la base de la evaluación [Dun01].
+
+**SPICE (ISO/IEC 15504):** estándar que define un conjunto de requerimientos para la evaluación del proceso del software. El objetivo del estándar es ayudar a las organizaciones a desarrollar una evaluación objetiva de cualquier proceso del software definido [ISO08].
+
+**ISO9001:2000 para software:** estándar genérico que se aplica a cualquier organización que desee mejorar la calidad general de los productos, sistemas o servicios que propor- ciona. Por tanto, el estándar es directamente aplicable a las organizaciones y compañías de software [Ant06].
+
+Pag 62
+
