@@ -146,3 +146,10 @@ Everything else remains the same until the final two lines. When we call the .op
 **$expandButton.click(expand);**
 **$shortenButton.click(shorten);**
 
+
+
+
+
+
+
+

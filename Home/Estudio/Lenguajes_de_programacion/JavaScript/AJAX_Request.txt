@@ -1,0 +1,191 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-03-21T22:43:58-03:00
+
+====== AJAX Request ======
+Created miércoles 21 marzo 2018
+
+=== AJAX GET ===
+$.ajax({
+  url : 'https://api-to-call.com/endpoint',
+  type: 'GET',
+  dataType: 'json',
+  
+  success(response){
+	console.log(response);
+  },
+  error(jqXHR, status, errorThrown){
+   console.log(jqXHR); 
+  }
+
+});
+
+=== Mismo ejemplo pero con Ajax ===
+**// Include data for accessing Google APIs**
+
+**const apiKey = 'AIzaSyCnxUwof_Q3rzaI1z4CtCYB3aAQDCsXI34';**
+**const url = 'https://www.googleapis.com/urlshortener/v1/url';**
+**const projection = 'FULL';**
+
+**// Some page elements**
+
+**const $inputField = $('#input');**
+**const $expandButton = $('#expand');**
+**const $shortenButton = $('#shorten');**
+**const $responseField = $('#responseField');**
+
+**// AJAX functions**
+
+**function expandUrl() {**
+** const urlToExpand = url + '?key=' + apiKey + '&shortUrl=' + $inputField.val();**
+**  $.ajax({**
+**    url: urlToExpand,**
+**    type: 'GET',**
+**    dataType: 'json',**
+    
+**    success(response){**
+**    $responseField.append('<p>Your expanded url is: </p><p>' + 			 response.longUrl + '</p>');**
+**  },**
+**     error(jqXHR, status, errorThrown){**
+**   console.log(jqXHR); **
+**  }**
+         
+**  })**
+**}**
+
+**function shortenUrl() {**
+** const urlWithKey = url + '?key=' + apiKey;**
+**  const urlToShorten = $inputField.val() ;**
+**  const data = JSON.stringify({longUrl: urlToShorten});**
+  
+**  const xhr = new XMLHttpRequest();**
+**  xhr.responseType = 'json';**
+**  xhr.onreadystatechange = function(){**
+**    if (xhr.readyState === XMLHttpRequest.DONE) {**
+**  		$responseField.append('<p>Your shortened url is: </p><p>' + xhr.response.id + '</p>');**
+**		};**
+**  };**
+**  xhr.open('POST', urlWithKey);**
+**  xhr.setRequestHeader('Content-Type', 'application/json');**
+**	xhr.send(data);**
+**}**
+
+**function expand() {**
+**  $responseField.empty();**
+**  expandUrl();**
+**  return false;**
+**}**
+
+**function shorten() {**
+**  $responseField.empty();**
+**  shortenUrl();**
+**  return false;**
+**}**
+
+**// Call functions on submit**
+
+**$expandButton.click(expand);**
+**$shortenButton.click(shorten);**
+
+
+=== AJAX POST ===
+
+// jQuery POST
+
+$.ajax({
+  url: 'https://api-to-call.com/endpoint',
+  type: 'POST',
+  data: JSON.stringify({id:200}),
+  dataType: 'json',
+  
+  success(response){
+	console.log(response);
+  },
+   error(jqXHR, status, errorThrown){
+   console.log(jqXHR); 
+  }
+
+  
+});
+
+
+
+=== AJAX requests with $.get() ===
+The jQuery library provides other methods that allow us to write fewer lines of code to accomplish the same goals.
+
+$.get('https://api-to-call.com/endpoint', response => {...}, 'json');
+In the example above, we use the $.get() method to write a GET request. However, we've gone from nearly a dozen lines of code at the beginning of this lesson to one or two.
+
+$.get( opens the method call.
+'https://api-to-call.com/endpoint' is the URL to which we're making our request.
+The second parameter, response => {...} is an arrow function. This is the success callback function. Between the curly braces, specify what to do with the response if it is successful, such as logging it to the console or appending it to the body of the HTML.
+The third parameter, 'json', is the response format.
+If the request you are making requires settings in addition to the parameters described above, the structure of the $.get() method is a bit different. Instead of passing separate arguments, you would pass a single settings object containing all of the arguments much like with the $.ajax() method. Then, you can omit the type property.
+
+=== AJAX requests with $.post() ===
+Just like the $.get() method, jQuery provides a $.post() method to make writing AJAX POST requests simpler.
+
+$.post('https://api-to-call.com/endpoint', {data}, response => {...}, 'json');
+In the example above, we use the .post() method to write a POST request using AJAX. It should look very similar to what you saw in the previous exercise!
+
+$.post( opens the method call.
+'https://api-to-call.com/endpoint' is the URL to which we're making our request.
+The second parameter, {data} is the object you'll use to send data with your request.
+The third parameter, response => {...} is an arrow function. This is the success callback function. Between the curly braces, you would specify what you want to do with the response if it is successful, such as logging it to the console or appending it to the body of the HTML.
+The fourth parameter, 'json', is the response format.
+If you need to specify any additional settings outside of these four parameters, you should instead pass a settings object to the $.post() method, much like with the $.ajax() method, but you can omit the type property.
+
+
+=== Ejemplo de .getJSON ===
+Para cuando sabemos que esperamos un json
+
+**function expandUrl() {**
+** const urlToExpand = url + '?key=' + apiKey + '&shortUrl=' + $inputField.val();**
+**  $.getJSON(urlToExpand, response => {**
+**    $responseField.append('<p>Your expanded url is: </p><p>' +**
+**  response.longUrl + '</p>');**
+**  });**
+**}**
+
+
+=== Ejemplo de .post ===
+**function shortenUrl() {**
+** const urlWithKey = url + '?key=' + apiKey;**
+** const urlToShorten = $inputField.val() ;**
+** $.post({**
+**   url: urlWithKey,**
+**   data: JSON.stringify({longUrl: urlToShorten}),**
+**   dataType: 'json',**
+**   contentType: 'application/json',**
+   
+**   success(response){**
+**     $responseField.append('<p>Your shortened url is: </p><p>' + response.id + '</p>');**
+**   },**
+**   error(jqXHR, status, errorThrown){**
+**   console.log(jqXHR); **
+**  }**
+   
+** }); **
+**}**
+
+
+=== Review Requests I ===
+JavaScript is the language of the web because of its asynchronous capabilities. A set of tools that are used together to take advantage of JavaScript's asynchronous capabilities is called AJAX, which stands for Asynchronous JavaScript and XML.
+
+There are four HTTP request methods, two of which are GET and POST.
+
+GET requests only request information from other sources.
+
+POST methods can introduce new information to other sources in addition to requesting it.
+
+GET requests can be written using an XMLHttpRequest object and vanilla JavaScript.
+
+POST requests can also be written using an XMLHttpRequest object and vanilla JavaScript.
+
+Writing GET and POST requests with XHR objects and vanilla JavaScript requires constructing the XHR object using new, setting the responseType, creating a function that will handle the response object, and opening and sending the request.
+
+Much of the boilerplate used to write GET and POST requests with XHR and vanilla JavaScript can be reduced by using the $.ajax() method from the jQuery library.
+
+jQuery provides other helper methods that can further reduce boilerplate such as $.get(), $.post(), and $.getJSON().
+
+Determining how to correctly write the requests and how to properly implement them requires carefully reading the documentation of the API with which you're working.
