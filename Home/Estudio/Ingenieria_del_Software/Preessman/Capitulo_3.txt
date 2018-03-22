@@ -1,0 +1,35 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Capitulo 3 ======
+Created jueves 22 marzo 2018
+
+===== Desarrollo Agil =====
+
+En 2001, Kent Beck y otros 16 notables desarrolladores de software, escritores y consultores [Bec01a] (grupo conocido como la “Alianza Ágil”) firmaron el “Manifiesto por el desarrollo ágil de software”. En él se establecía lo siguiente:
+Estamos descubriendo formas mejores de desarrollar software, por medio de hacerlo y de dar ayuda a otros para que lo hagan. Ese trabajo nos ha hecho valorar:
+
+**Los individuos y sus interacciones, sobre los procesos y las herramientas**
+**El software que funciona, más que la documentación exhaustiva**
+**La colaboración con el cliente, y no tanto la negociación del contrato**
+**Responder al cambio, mejor que apegarse a un plan**
+
+Es decir, si bien son valiosos los conceptos que aparecen en segundo lugar, valoramos más los que aparecen en primer sitio.
+
+**¿Qué es?** La ingeniería de software ágil combina una filosofía con un conjunto de lineamientos de desarrollo. La filosofía pone el énfasis en: la satisfacción del cliente y en la entrega rápida de software incremental, los equipos
+pequeños y muy motivados para efectuar el proyecto, los métodos informales, los productos del trabajo con mínima ingeniería de software y la sencillez general en el desarrollo. Los lineamientos de desarrollo enfatizan la entrega
+sobre el análisis y el diseño (aunque estas actividades no se desalientan) y la comunicación activa y continua entre desarrolladores y clientes.
+
+**¿Quién lo hace?** Los ingenieros de software y otros participantes en el proyecto (gerentes, clientes, usuarios finales,etc.) trabajan juntos en un proyecto ágil, formando un equipo con organización propia y que controla su propio destino. Un equipo ágil facilita la comunicación y colaboración entre aquellos a quienes sirve.
+
+La fluidez implica cambio, y el cambio es caro, en particular si es descontrolado o si se administra mal. Una de las características más atractivas del enfoque ágil es su capacidad de reducir los costos del cambio durante el proceso del software.
+En un libro que suscita la reflexión sobre el desarrollo de software ágil, Alistair Cockburn [CocO2] argumenta que los modelos de proceso prescriptivo, introducidos en el capítulo 2, tienen una falla grande: olvidan las flaquezas de las personas cuando construyen software. Los ingenieros de software no son robots. Sus estilos de trabajo varían mucho; tienen diferencias significativas en habilidad, creatividad, orden, consistencia y espontaneidad. Algunos se comunican bien por escrito, pero otros no. Cockburn afirma que los modelos de proceso pueden “manejar las carencias de disciplina o tolerancia de las personas comunes” y que los modelos de proceso más prescriptivo eligen la disciplina. Dice: “Como la consistencia de las acciones es una debilidad humana, las metodología que requieren mucha disciplina son frágiles.”
+Para funcionar, los modelos de proceso deben proveer un mecanismo realista que estimule la disciplina necesaria, o deben caracterizarse por la “tolerancia” con las personas que hacen el trabajo de ingeniería de software. Invariablemente, las prácticas tolerantes son más fáciles de adoptar y sostener por parte de la comunidad del software, pero son menos productivas (como admite Cockburn). Debe considerarse la negociación entre ellas, como en todas las cosas de la vida.
+
+
+**Pero, ¿qué es la agilidad en el contexto del trabajo de la ingeniería de software? Ivar Jacobson [Jac02a] hace un análisis útil:**
+La agilidad se ha convertido en la palabra mágica de hoy para describir un proceso del software moderno. Todos son ágiles. Un equipo ágil es diestro y capaz de responder de manera apropiada a los cambios. El cambio es de lo que trata el software en gran medida. Hay cambios en el software que se construye, en los miembros del equipo, debidos a las nuevas tecnologías, de todas clases y que tienen un efecto en el producto que se elabora o en el proyecto que lo crea. Deben introducirse apoyos para el cambio en todo lo que se haga en el software; en ocasiones se hace porque es el alma y corazón de éste. Un equipo ágil reconoce que el software es desarrollado por individuos que trabajan en equipo, y que su capacidad, su habilidad para colaborar, es el fundamento para el éxito del proyecto.
+
+
+
+
