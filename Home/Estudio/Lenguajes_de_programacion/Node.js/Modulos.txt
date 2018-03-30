@@ -1,0 +1,103 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Modulos ======
+Created jueves 29 marzo 2018
+
+=== What is a Module in Node.js? ===
+Consider modules to be the same as JavaScript libraries.
+A set of functions you want to include in your application
+
+=== Built-in Modules ===
+Node.js has a set of built-in modules which you can use without any further installation.
+
+
+=== Include Modules ===
+To include a module, use the require() function with the name of the module:
+
+**var http = require('http');**
+
+Now your application has access to the HTTP module, and is able to create a server:
+
+**http.createServer(function (req, res) {**
+**    res.writeHead(200, {'Content-Type': 'text/html'});**
+**    res.end('Hello World!');**
+**}).listen(8080);**
+
+
+=== Create your own modules ===
+You can create your own modules, and easily include them in your applications.
+The following examples creates a module that returns a date and time object:
+
+**exports.myDateTime = function () {**
+**    return Date();**
+**};**
+
+Use the exports keyword to make properties and methods available outside the module file.
+Save the code above in a file called "myfirstmodule.js"
+
+=== Include Your Own Module ===
+Now you can include and use the module in any of your Node.js files.
+
+**var http = require('http');**
+**var dt = require('./myfirstmodule');**
+
+**http.createServer(function (req, res) {**
+**    res.writeHead(200, {'Content-Type': 'text/html'});**
+**    res.write("The date and time are currently: " + dt.myDateTime());**
+**    res.end();**
+**}).listen(8080);**
+
+=== HTML Module ===
+
+**The Built-in HTTP Module**
+Node.js has a built-in module called HTTP, which allows Node.js to transfer data over the Hyper Text Transfer Protocol (HTTP).
+To include the HTTP module, use the require() method:
+
+//var http = require('http');//
+
+
+=== Node.js as a Web Server ===
+The HTTP module can create an HTTP server that listens to server ports and gives a response back to the client.
+Use the createServer() method to create an HTTP server:
+
+**Example**
+//var http = require('http');//
+
+**//create a server object:**
+**http.createServer(function (req, res) {**
+**  res.write('Hello World!'); //write a response to the client**
+**  res.end(); //end the response**
+**}).listen(8080); //the server object listens on port 8080**
+
+
+=== Add an HTTP Reader ===
+If the response from the HTTP server is supposed to be displayed as HTML, you should include an HTTP header with the correct content type:
+
+**Example**
+
+//var http = require('http');//
+//http.createServer(function (req, res) {//
+//  res.writeHead(200, {'Content-Type': 'text/html'});//
+//  res.write('Hello World!');//
+//  res.end();//
+//}).listen(8080);//
+
+
+=== Read de Query String ===
+The function passed into the http.createServer() has a req argument that represents the request from the client, as an object (http.IncomingMessage object).
+This object has a property called "url" which holds the part of the url that comes after the domain name:
+
+demo_http_url.js
+
+//var http = require('http');//
+//http.createServer(function (req, res) {//
+//    res.writeHead(200, {'Content-Type': 'text/html'});//
+//    res.write(req.url);//
+//    res.end();//
+//}).listen(8080);//
+
+
+
+
+
